@@ -23,8 +23,9 @@
             <th>Formation</th>
             <th>Moyenne</th>
             <th>Résultat</th>
+            <th>Actions</th> <!-- New column -->
         </tr>
-        <?php foreach ($etudiants as $e): ?>
+        <?php foreach ($etudiants as $id => $e): ?>
         <tr>
             <td><?= htmlspecialchars($e['nom']) ?></td>
             <td><?= htmlspecialchars($e['prenom']) ?></td>
@@ -32,6 +33,10 @@
             <td><?= htmlspecialchars($e['formation']) ?></td>
             <td><?= htmlspecialchars($e['moyenne']) ?>/20</td>
             <td><?= resultat($e['moyenne']) ?></td>
+            <td>
+                <a href="modifier.php?id=<?= $id ?>">Modifier</a> | 
+                <a href="supprimer.php?id=<?= $id ?>" onclick="return confirm('Voulez-vous vraiment supprimer cet étudiant ?');">Supprimer</a>
+            </td>
         </tr>
         <?php endforeach; ?>
     </table>
