@@ -1,5 +1,4 @@
 <?php
-// Check if the data exists before trying to use it (to avoid warnings)
 if (isset($_GET['nom'])) {
     $nom = $_GET['nom'];
     $prenom = $_GET['prenom'];
@@ -21,7 +20,6 @@ if (isset($_GET['nom'])) {
 <body>
     <h1>Formulaire Étudiant (GET)</h1>
     
-    <!-- By default, a form sends data via GET, but we specify it for clarity -->
     <form method="GET">
         <label>Nom :</label>
         <input type="text" name="nom"><br><br>
