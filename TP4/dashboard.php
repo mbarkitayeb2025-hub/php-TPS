@@ -9,6 +9,7 @@ protegerPage(); // This kicks you out if you aren't logged in
 <head>
     <meta charset="UTF-8">
     <title>Tableau de bord</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>Tableau de bord</h1>

@@ -44,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Modifier un étudiant</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>Modifier un étudiant</h1>

@@ -18,6 +18,7 @@ if (isset($_GET['nom']) && !empty(trim($_GET['nom']))) {
 <head>
     <meta charset="UTF-8">
     <title>Rechercher</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>Rechercher un étudiant</h1>
