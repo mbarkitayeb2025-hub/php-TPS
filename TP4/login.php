@@ -1,15 +1,11 @@
 <?php
-session_start();
-
-$usernameCorrect = "admin";
-$passwordCorrect = "123456";
+require 'utilisateur.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
 
-    if ($username === $usernameCorrect && $password === $passwordCorrect) {
+    if (isset($_SESSION['users'][$username]) && password_verify($password, $_SESSION['users'][$username])) {
         
         $_SESSION['username'] = $username;
         $_SESSION['connecte'] = true;
@@ -18,15 +14,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
         
     } else {
-        echo "Identifiants incorrects.";
+        echo "<p style='color:red;'>Identifiants incorrects.</p>";
     }
 }
 ?>
 
-<form method="POST">
-    <label>Nom d'utilisateur : </label>
-    <input type="text" name="username"><br>
-    <label>Mot de passe : </label>
-    <input type="password" name="password"><br>
-    <button type="submit">Se connecter</button>
-</form>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+</head>
+<body>
+    <h1>Connexion</h1>
+    
+    <form method="POST">
+        <label>Nom d'utilisateur :</label><br>
+        <input type="text" name="username"><br><br>
+        <label>Mot de passe :</label><br>
+        <input type="password" name="password"><br><br>
+        <button type="submit">Se connecter</button>
+    </form>
+
+    <p><a href="inscription.php">Créer un compte</a></p>
+</body>
+</html>
